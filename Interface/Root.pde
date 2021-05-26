@@ -11,8 +11,12 @@ Root(float rad,float x, float y, float dx, float dy){
   c = color(random(255),random(255),random(255));
   this.remove=false;
 }
-
-void move(){}
+Root(){
+  this(20+(int)(Math.random()*30),random(width),height,random(6)-3,-10);
+}
+void move(){
+ 
+}
 void display(){
   fill(c);
   ellipse(x,y,radius*2,radius*2);
