@@ -12,17 +12,19 @@ Root(float rad,float x, float y, float dx, float dy){
   this.remove=false;
 }
 Root(){
-  this(20+(int)(Math.random()*30),random(width),height,random(6)-3,-10);
+  this(20+(int)(Math.random()*30),random(width+1),height,random(6)-3,-(random(7)+10));
 }
 void move(){
   x+=dx;
   y+=dy;
+  dy+=.2;
   if (x >= width - radius || x <= radius) dx *= -1;
     //if (y >= height - radius || y <= radius) dy *= -1;
 }
 void display(){
-  fill(c);
-  ellipse(x,y,radius*2,radius*2);
+  noStroke();
+    fill(c);
+    ellipse(x, y, radius*2, radius*2);
 }
 void click(){}
 }
