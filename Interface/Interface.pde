@@ -24,11 +24,6 @@ void draw(){
   text("Score: " + score,width-200,50);
 
   for (Root r : new ArrayList<Root>(roots)) {
-    /*if (((millis()*1000))%5==0){
-      for (int i=0; i<(int)random(10);i++){
-        roots.add(new Root());
-      }
-    }*/
     //if goes off the bottom, remove it
     if (r.y>=height+r.radius||r.remove==true)
       roots.remove(r);
@@ -37,6 +32,10 @@ void draw(){
     r.display(); 
     }
   }
+  if (((millis()*1000))%5==0){
+      for (int i=0; i<(int)random(10);i++){
+        roots.add(new Root());
+      }
   fill(0);  
   textSize(20);
   text("FPS: "+frameRate+"\nRoots: "+roots.size(),0,20);
