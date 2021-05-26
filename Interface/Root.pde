@@ -15,7 +15,10 @@ Root(){
   this(20+(int)(Math.random()*30),random(width),height,random(6)-3,-10);
 }
 void move(){
- 
+  x+=dx;
+  y+=dy;
+  if (x >= width - radius || x <= radius) dx *= -1;
+    //if (y >= height - radius || y <= radius) dy *= -1;
 }
 void display(){
   fill(c);
