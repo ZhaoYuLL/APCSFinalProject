@@ -10,8 +10,12 @@ frameRate(30);
 size(1000,800);
 lives=3;
 roots = new ArrayList<Root>();
-  for (int i = 0; i < 10; i++)
-    roots.add(new Root());
+  for (int i = 0; i < 10; i++){
+    int x = (int)(Math.random() * ((9 -1) + 1)) + 1;
+    if(x<=3) roots.add(new Radish());
+    if(x>=7) roots.add(new Beet());
+    else roots.add(new Potato());
+  }
 }
 void draw(){
   background(200);
@@ -34,12 +38,16 @@ void draw(){
   }
   if (millis()%500==0){
       for (int i=0; i<(int)random(10);i++){
-        roots.add(new Root());
+        int x = (int)(Math.random() * ((9 -1) + 1)) + 1;
+    if(x<=3) roots.add(new Radish());
+    if(x>=7) roots.add(new Beet());
+    else roots.add(new Potato());
       }
   }
   fill(0);  
   textSize(20);
   text("FPS: "+frameRate+"\nRoots: "+roots.size(),0,20);
+}
 }
 void mousePressed(){
   if(mouseButton == LEFT){
