@@ -5,7 +5,8 @@ boolean remove;
 Root(){}
 void move(){}
 void display(){
-  stroke(0);
+  fill(c);
+  ellipse(x,y,radius*2,radius*2);
 }
 void click(){}
 }
