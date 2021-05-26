@@ -1,9 +1,9 @@
 
 ArrayList<Root> roots;
-int score;
-int lives = 3;
+float score;
+float lives;
 float highScore;
-float time;
+float time=0;
 
 void setup(){
 frameRate(30);
@@ -13,24 +13,24 @@ roots = new ArrayList<Root>();
     roots.add(new Root());
 }
 void draw(){
- 
-background(200);
-fill(255);
-rect(20, 5, 200, 100, 7);
-rect(width-220, 5, 200, 100, 7);
-fill(0);
-textSize(20);
-text("Lives: "+lives+"\nTime: "+Math.round(time/60*10.0/10.0),30,50);
-text("Score: " + score,width-200,50);
-time++;
-  for (Root r : roots) {
+  background(200);
+  for (Root r : new ArrayList<Root>(roots)) {
+    if (millis()%800==0){
+      for (int i=0; i<(int)random(10);i++){
+        roots.add(new Root());
+      }
+    }
     r.move();
+    //if goes off the bottom, remove it
     if (r.y>=height+r.radius)
       roots.remove(r);
     else{
     r.display(); 
     }
   }
+  fill(0);  
+  textSize(20);
+  text("FPS: "+frameRate+"\nRoots: "+roots.size(),0,20);
 }
 void mousePressed(){
   if(mouseButton == LEFT){
