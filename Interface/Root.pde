@@ -12,7 +12,7 @@ Root(float rad,float x, float y, float dx, float dy){
   this.remove=false;
 }
 Root(){
-  this(20+(int)(Math.random()*30),random(width+1),height,random(6)-3,-(random(7)+10));
+  this(20+(int)(Math.random()*30),random(width+1),height,random(6)-3,-(random(4)+13));
 }
 void move(){
   x+=dx;
@@ -26,5 +26,8 @@ void display(){
     fill(c);
     ellipse(x, y, radius*2, radius*2);
 }
-void click(){}
+void click(){
+if (dist(x,y,mouseX,mouseY)<=radius)
+   remove=true;
+}
 }

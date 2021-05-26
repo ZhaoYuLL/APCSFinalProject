@@ -1,7 +1,7 @@
 
 ArrayList<Root> roots;
-float score;
-float lives;
+int score;
+int lives;
 float highScore;
 float time=0;
 
@@ -22,18 +22,18 @@ void draw(){
   textSize(20);
   text("Lives: "+lives+"\nTime: "+Math.round(time/30*10.0/10.0),30,50);
   text("Score: " + score,width-200,50);
-  background(200);
+
   for (Root r : new ArrayList<Root>(roots)) {
     /*if (((millis()*1000))%5==0){
       for (int i=0; i<(int)random(10);i++){
         roots.add(new Root());
       }
     }*/
-    r.move();
     //if goes off the bottom, remove it
-    if (r.y>=height+r.radius)
+    if (r.y>=height+r.radius||r.remove==true)
       roots.remove(r);
     else{
+      r.move();
     r.display(); 
     }
   }
