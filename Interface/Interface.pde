@@ -29,14 +29,17 @@ void draw(){
 
   for (Root r : new ArrayList<Root>(roots)) {
     //if goes off the bottom, remove it
-    if (r.y>=height+r.radius||r.remove==true)
+    if (r.y>=height+r.radius||r.remove==true){
       roots.remove(r);
+      if (r.remove==true)
+      score++;
+    }
     else{
       r.move();
     r.display(); 
     }
   }
-  if (millis()%500==0){
+  if (true){
       for (int i=0; i<(int)random(10);i++){
         int x = (int)(Math.random() * ((9 -1) + 1)) + 1;
     if(x<=3) roots.add(new Radish());
@@ -48,7 +51,7 @@ void draw(){
   textSize(20);
   text("FPS: "+frameRate+"\nRoots: "+roots.size(),0,20);
 }
-}
+
 void mousePressed(){
   if(mouseButton == LEFT){
     for(Root r: roots){
