@@ -2,10 +2,10 @@ public class Root{
 float x,y,dx,dy,radius;
 color c;
 boolean remove;
-
-  Root(){
-  }
+Root(){}
 void move(){}
-void display(){}
+void display(){
+  stroke(0);
+}
 void click(){}
 }
