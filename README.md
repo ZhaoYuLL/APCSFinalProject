@@ -9,5 +9,6 @@ Our project will be a Processing game based off of the mobile sensation Fruit Ni
 DevLog 5/25
 ------
 Zhao Yu Lin: Changed some dataypes, did crude outline of the basic interface of the game, setting up the interface, and displaying the roots.
+
 Brandon O'Connor: Basic gravity for roots flying to the screen and removing them when they fall off of the screen, removing the roots with a click, constructor and movement of the Root class.
 
