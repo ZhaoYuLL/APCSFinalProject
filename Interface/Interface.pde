@@ -18,13 +18,14 @@ roots = new ArrayList<Root>();
   }
 }
 void draw(){
+  time=millis();
   background(200);
   fill(255);
   rect(20, 5, 200, 100, 7);
   rect(width-220, 5, 200, 100, 7);
   fill(0);
   textSize(20);
-  text("Lives: "+lives+"\nTime: "+Math.round(time/30*10.0/10.0),30,50);
+  text("Lives: "+lives+"\nTime: "+(int)(Math.round(time)/1000),30,50);
   text("Score: " + score,width-200,50);
 
   for (Root r : new ArrayList<Root>(roots)) {
@@ -39,14 +40,15 @@ void draw(){
     r.display(); 
     }
   }
-  if (true){
+  if (time%50==0){
       for (int i=0; i<(int)random(10);i++){
         int x = (int)(Math.random() * ((9 -1) + 1)) + 1;
     if(x<=3) roots.add(new Radish());
     if(x>=7) roots.add(new Beet());
-    else roots.add(new Potato());
+     else if(x >3 && x<7)  roots.add(new Potato());
       }
   }
+  
   fill(0);  
   textSize(20);
   text("FPS: "+frameRate+"\nRoots: "+roots.size(),0,20);
