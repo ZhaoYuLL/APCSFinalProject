@@ -4,6 +4,7 @@ color c;
 boolean remove;
 
   Root(){
+    x=10;
   }
 void move(){}
 void display(){}
