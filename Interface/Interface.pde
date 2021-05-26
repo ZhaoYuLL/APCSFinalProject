@@ -32,10 +32,11 @@ void draw(){
     r.display(); 
     }
   }
-  if (((millis()*1000))%5==0){
+  if (millis()%500==0){
       for (int i=0; i<(int)random(10);i++){
         roots.add(new Root());
       }
+  }
   fill(0);  
   textSize(20);
   text("FPS: "+frameRate+"\nRoots: "+roots.size(),0,20);
