@@ -46,9 +46,9 @@ void draw() {
 
   for (Root r : new ArrayList<Root>(roots)) {
     //if goes off the bottom, remove it
+    if(r.y>=height+r.radius) lives --;
     if (r.y>=height+r.radius||r.remove==true) {
       roots.remove(r);
-      lives--;
       if (r.remove==true)
         score++;
     } else {
