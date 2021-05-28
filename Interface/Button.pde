@@ -24,4 +24,9 @@ class Button {
     text(label, x + (w / 2), y + (h / 2));
   }
   
+  void click() {
+    if (mouseX > x && mouseX < (x + w) && mouseY > y && mouseY < (y + h)) {
+      clicked=true;
+    }
+  }
 }
