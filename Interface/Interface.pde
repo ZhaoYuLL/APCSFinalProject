@@ -6,7 +6,6 @@ int lives;
 float highScore;
 float time=0;
 boolean lose;
-
 void setup() {
   frameRate(30);
   size(1000, 800);
@@ -17,14 +16,24 @@ void setup() {
   lose=true;
 }
 void draw() {
+  if(lives <= 0) {
+    background(200);
+    lose = true;
+    roots.clear();
+  }
+
   if (lose){
     for (Button b: buttons){
       b.Draw();
-      if (b.clicked==true)
-        lose=false;
+      if (b.clicked==true){
+      lose=false;
+      lives = 3;
+      b.clicked = false;
+      }     
     }
   }
-  else if (!lose){
+  
+  else {
   time=millis();
   background(200);
   fill(255);
@@ -39,6 +48,7 @@ void draw() {
     //if goes off the bottom, remove it
     if (r.y>=height+r.radius||r.remove==true) {
       roots.remove(r);
+      lives--;
       if (r.remove==true)
         score++;
     } else {
