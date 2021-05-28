@@ -47,16 +47,15 @@ void draw() {
   text("Score: " + score, width-200, 50);
 
   for (Root r : new ArrayList<Root>(roots)) {
+    r.move();
+    r.display();
     //if goes off the bottom, remove it
+    if(r.y>=height+r.radius) lives --;
     if (r.y>=height+r.radius||r.remove==true) {
       roots.remove(r);
-      lives--;
       if (r.remove==true)
         score++;
-    } else {
-      r.move();
-      r.display();
-    }
+    } 
   }
   if (ingamet%5000>50&&ingamet%5000<100) {
     double multi=1;
