@@ -7,8 +7,12 @@ float highScore;
 float Stime=0;
 boolean lose;
 float ingamet=0;
+PImage bg;
 void setup() {
+  bg = loadImage("defaultBack.jpg");
+  bg.resize(1000,800); //change
   frameRate(30);
+  background(bg);
   size(1000, 800);
   lives=3;
   roots = new ArrayList<Root>();
@@ -18,7 +22,7 @@ void setup() {
 }
 void draw() {
   if(lives <= 0) {
-    background(200);
+    background(bg);
     lose = true;
     roots.clear();
   }
@@ -37,7 +41,7 @@ void draw() {
   
   else {
   ingamet=millis()-Stime;
-  background(200);
+  background(bg);
   fill(255);
   rect(20, 5, 200, 100, 7);
   rect(width-220, 5, 200, 100, 7);
