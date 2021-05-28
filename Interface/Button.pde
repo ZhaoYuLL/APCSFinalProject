@@ -1,9 +1,9 @@
 class Button {
   String label;
-  float x;    // top left corner x position
-  float y;    // top left corner y position
-  float w;    // width of button
-  float h;    // height of button
+  float x;    
+  float y;    
+  float w;    
+  float h;    
   boolean clicked;
   
   Button(String labelB, float xpos, float ypos, float widthB, float heightB) {
