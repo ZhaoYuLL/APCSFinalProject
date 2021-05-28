@@ -31,6 +31,7 @@ void draw() {
       lives = 3;
       b.clicked = false;
       Stime=millis();
+      score=0;
       }     
     }
   }
