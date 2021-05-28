@@ -1,9 +1,9 @@
 class Button {
   String label;
-  float x;    // top left corner x position
-  float y;    // top left corner y position
-  float w;    // width of button
-  float h;    // height of button
+  float x;    
+  float y;    
+  float w;    
+  float h;    
   boolean clicked;
   
   Button(String labelB, float xpos, float ypos, float widthB, float heightB) {
@@ -24,9 +24,4 @@ class Button {
     text(label, x + (w / 2), y + (h / 2));
   }
   
-  void click() {
-    if (mouseX > x && mouseX < (x + w) && mouseY > y && mouseY < (y + h)) {
-      clicked=true;
-    }
-  }
 }
