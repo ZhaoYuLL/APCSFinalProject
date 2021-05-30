@@ -7,12 +7,14 @@ float highScore;
 float Stime=0;
 boolean lose;
 float ingamet=0;
-PImage bg;
+PImage bg, ts;
 void setup() {
-  bg = loadImage("defaultBack.jpg");
+  ts = loadImage("titleScreen.jpg");
+  bg = loadImage("background.png");
+  ts.resize(1000,800);
   bg.resize(1000,800); //change
   frameRate(30);
-  background(bg);
+  background(ts);
   size(1000, 800);
   lives=3;
   roots = new ArrayList<Root>();
