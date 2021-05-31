@@ -8,9 +8,10 @@ Our project will be a Processing game based off of the mobile sensation Fruit Ni
 
 DevLog 5/30
 ------
-Zhao Yu Lin:
+Zhao Yu Lin: Changed the background, changed fonts + colors, cleaned up some aesthetics, made some very basic particle effect coming from mouse.
 
-Brandon O'Connor:
+Brandon O'Connor: Created custom sprites for the current classes, made changes to all the child classes of Root. Changed beets class to onion due to similarity w/ radish.  
+
 DevLog 5/28
 ------
 Zhao Yu Lin: Added some temporary images as background and tweaked score.
