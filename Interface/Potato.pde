@@ -8,7 +8,7 @@ public class Potato extends Root{
   void display(){
   noStroke();
     fill(c);
-    ellipse(x, y, radius*2, radius*2);
+    //ellipse(x, y, radius*2, radius*2);
     imageMode(CENTER);
     image(potato,x,y);
 }
