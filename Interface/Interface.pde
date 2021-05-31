@@ -24,7 +24,7 @@ void setup() {
 }
 void draw() {
   if(lives <= 0) {
-    background(bg);
+    background(ts);
     lose = true;
     roots.clear();
   }
@@ -81,7 +81,7 @@ void draw() {
 
   fill(0);  
   textSize(20);
-  text("FPS: "+frameRate+"\nRoots: "+roots.size(), width/2, 20);
+  text("FPS: "+frameRate+"\nRoots: "+roots.size(), width/2, 20); //hide laterrrrrrrrbac
   }
 }
 
