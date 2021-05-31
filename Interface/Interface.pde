@@ -45,6 +45,8 @@ void draw() {
   else {
   ingamet=millis()-Stime;
   background(bg);
+  stroke(255);
+  line(pmouseX,pmouseY,mouseX,mouseY);
   fill(255);
   rect(20, 5, 200, 100, 7);
   rect(width-220, 5, 200, 100, 7);
