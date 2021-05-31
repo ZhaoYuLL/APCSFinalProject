@@ -8,6 +8,8 @@ float Stime=0;
 boolean lose;
 float ingamet=0;
 PImage bg, ts;
+boolean firstTime = true;
+int x = 0;
 void setup() {
   ts = loadImage("titleScreen.jpg");
   bg = loadImage("background.png");
@@ -20,6 +22,7 @@ void setup() {
   roots = new ArrayList<Root>();
   buttons= new ArrayList<Button>();
   buttons.add( new Button("Play",width/2-100,height/2-50,200,100));
+  buttons.add( new Button("Play Again",width/2-100,height/2-50,200,100));
   lose=true;
 }
 void draw() {
@@ -30,16 +33,17 @@ void draw() {
   }
 
   if (lose){
-    for (Button b: buttons){
-      b.Draw();
-      if (b.clicked==true){
+      if(!firstTime) x = 1;
+      buttons.get(x).Draw();
+      if (buttons.get(x).clicked==true){
       lose=false;
       lives = 3;
-      b.clicked = false;
+      buttons.get(x).clicked = false;
       Stime=millis();
       score=0;
-      }     
-    }
+      firstTime = false;
+      }
+      
   }
   
   else {
