@@ -50,8 +50,8 @@ void draw() {
   rect(width-220, 5, 200, 100, 7);
   fill(0);
   textSize(20);
-  text("Lives: "+lives+"\nTime: "+(int)(Math.round(ingamet)/1000), 30, 50);
-  text("Score: " + score, width-200, 50);
+  text("Lives: "+lives+"\nTime: "+(int)(Math.round(ingamet)/1000), 60, 50);
+  text("Score: " + score, width-180, 50);
 
   for (Root r : new ArrayList<Root>(roots)) {
     r.move();
