@@ -78,7 +78,7 @@ void draw() {
       for (int i=0; i<(int)(random(10)*multi); i++) {
       int x = (int)(Math.random() * ((9 -1) + 1)) + 1;
       if (x<=3) roots.add(new Radish());
-      if (x>=7) roots.add(new Beet());
+      if (x>=7) roots.add(new Onion());
       else if (x >3 && x<7)  roots.add(new Potato());
     }
   }
