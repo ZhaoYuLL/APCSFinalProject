@@ -6,6 +6,18 @@ Our project will be a Processing game based off of the mobile sensation Fruit Ni
 
 [Prototype](https://docs.google.com/document/d/1LKkPBnfiCc2c-gIcOuF8BnEu1Ett5MtOisJ37yS0cz4/edit?usp=sharing)
 
+DevLog 5/30
+------
+Zhao Yu Lin: Changed the background, changed fonts + colors, cleaned up some aesthetics, made some very basic particle effect coming from mouse.
+
+Brandon O'Connor: Created custom sprites for the current classes, made changes to all the child classes of Root. Changed beets class to onion due to similarity w/ radish.  
+
+DevLog 5/28
+------
+Zhao Yu Lin: Added some temporary images as background and tweaked score.
+
+Brandon O'Connor: Reseted score each time the play clicks play. Made a proper and working timer.
+
 DevLog 5/27
 ------
 Zhao Yu Lin: Added the "lose" feature from prototype. Players now lose live for fruits they didn't click. Added play button when restarting the game when lose = true.
