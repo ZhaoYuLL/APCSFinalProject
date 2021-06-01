@@ -8,8 +8,6 @@ float Stime=0;
 boolean lose;
 float ingamet=0;
 PImage bg, ts;
-boolean firstTime = true;
-int x = 0;
 PFont font;
 void setup() {
   font = loadFont("GB.vlw");
@@ -25,7 +23,6 @@ void setup() {
   roots = new ArrayList<Root>();
   buttons= new ArrayList<Button>();
   buttons.add( new Button("Play",width/2-100,height/2-50,200,100));
-  buttons.add( new Button("Play Again",width/2-100,height/2-50,200,100));
   lose=true;
 }
 void draw() {
@@ -35,18 +32,16 @@ void draw() {
     roots.clear();
   }
 
-  if (lose){
-      if(!firstTime) x = 1;
-      buttons.get(x).Draw();
-      if (buttons.get(x).clicked==true){
+ if (lose){
+    Button b = buttons.get(0);
+      b.Draw();
+      if (b.clicked==true){
       lose=false;
       lives = 3;
-      buttons.get(x).clicked = false;
+      b.clicked = false;
       Stime=millis();
       score=0;
-      firstTime = false;
-      }
-      
+    }   
   }
   
   else {
