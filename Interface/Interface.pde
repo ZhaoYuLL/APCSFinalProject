@@ -3,12 +3,13 @@ ArrayList<Root> roots;
 ArrayList<Button> buttons;
 int score;
 int lives;
-float highScore;
 float Stime=0;
 boolean lose;
 float ingamet=0;
 PImage bg, ts;
 PFont font;
+int sessionScore;
+int highScore;
 void setup() {
   font = loadFont("GB.vlw");
   textFont(font);
@@ -30,18 +31,24 @@ void draw() {
     background(ts);
     lose = true;
     roots.clear();
+    fill(213,44,32);
+    textSize(20);
+    if(sessionScore > highScore) highScore = sessionScore;
+    System.out.println(highScore + "h");
+    text("Score: " + sessionScore, width-180, 50);
+    text("Highscore: " + highScore, width-180, 100);
+    score=0;
   }
 
- if (lose){
-    Button b = buttons.get(0);
+if (lose){
+    for (Button b: buttons){
       b.Draw();
       if (b.clicked==true){
       lose=false;
       lives = 3;
       b.clicked = false;
-      Stime=millis();
-      score=0;
-    }   
+      Stime=millis();      }     
+    }
   }
   
   else {
@@ -56,7 +63,7 @@ void draw() {
   textSize(20);
   text("Lives: "+lives+"\nTime: "+(int)(Math.round(ingamet)/1000), 60, 50);
   text("Score: " + score, width-180, 50);
-
+  sessionScore = score;
   for (Root r : new ArrayList<Root>(roots)) {
     r.move();
     r.display();
