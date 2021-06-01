@@ -34,7 +34,6 @@ void draw() {
     fill(213,44,32);
     textSize(20);
     if(sessionScore > highScore) highScore = sessionScore;
-    System.out.println(highScore + "h");
     text("Score: " + sessionScore, width-180, 50);
     text("Highscore: " + highScore, width-180, 100);
     score=0;
@@ -68,11 +67,21 @@ if (lose){
     r.move();
     r.display();
     //if goes off the bottom, remove it
-    if(r.y>=height+r.radius) lives --;
+    if(r.y>=height+r.radius){
+      if (r.bomb==false)
+    lives --;
+    }
     if (r.y>=height+r.radius||r.remove==true) {
       roots.remove(r);
-      if (r.remove==true)
+      if (r.remove==true){
+        if (r.bomb==true){
+          score-=5;
+          lives--;
+        } 
+        else{
         score++;
+        }
+      }
     } 
   }
   if (ingamet%5000>50&&ingamet%5000<100) {
@@ -81,9 +90,10 @@ if (lose){
        multi=(double)ingamet/10000;
     }
       for (int i=0; i<(int)(random(10)*multi); i++) {
-      int x = (int)(Math.random() * ((9 -1) + 1)) + 1;
+      int x = (int)(Math.random() * ((30 -1) + 1)) + 1;
       if (x<=3) roots.add(new Radish());
       if (x>=7) roots.add(new Onion());
+      if (x>=10) roots.add(new Bomb());
       else if (x >3 && x<7)  roots.add(new Potato());
     }
   }
