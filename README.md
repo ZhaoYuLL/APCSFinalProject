@@ -6,6 +6,12 @@ Our project will be a Processing game based off of the mobile sensation Fruit Ni
 
 [Prototype](https://docs.google.com/document/d/1LKkPBnfiCc2c-gIcOuF8BnEu1Ett5MtOisJ37yS0cz4/edit?usp=sharing)
 
+DevLog 6/1
+------
+Zhao Yu Lin: Session score and high score now appears. 
+
+Brandon O'Connor: Updated sprites and created a bomb class.
+
 DevLog 5/30
 ------
 Zhao Yu Lin: Changed the background, changed fonts + colors, cleaned up some aesthetics, made some very basic particle effect coming from mouse.
