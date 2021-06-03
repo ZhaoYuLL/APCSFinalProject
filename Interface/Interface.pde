@@ -66,6 +66,7 @@ if (lose){
   for (Root r : new ArrayList<Root>(roots)) {
     r.move();
     r.display();
+    r.click();//enables slashing
     //if goes off the bottom, remove it
     if(r.y>=height+r.radius){
       if (r.bomb==false)
