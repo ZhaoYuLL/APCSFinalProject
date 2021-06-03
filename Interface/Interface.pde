@@ -10,6 +10,7 @@ PImage bg, ts;
 PFont font;
 int sessionScore;
 int highScore;
+boolean pause;
 void setup() {
   font = loadFont("GB.vlw");
   textFont(font);
@@ -25,6 +26,7 @@ void setup() {
   buttons= new ArrayList<Button>();
   buttons.add( new Button("Play",width/2-100,height/2-50,200,100));
   lose=true;
+  pause=false;
 }
 void draw() {
   if(lives <= 0) {
@@ -51,6 +53,14 @@ if (lose){
   }
   
   else {
+    if (pause){
+    background(bg);
+     text("Lives: "+lives+"\nTime: "+(int)(Math.round(ingamet)/1000), 60, 50);
+    text("Score: " + score, width-180, 50);
+    textSize(100);
+    text("Paused",width/2,50);
+  }
+   else{ 
   ingamet=millis()-Stime;
   background(bg);
   stroke(255);
@@ -90,7 +100,7 @@ if (lose){
       }
     } 
   }
-  if (ingamet%5000>50&&ingamet%5000<100) {
+  if ((ingamet%4000>50&&ingamet%4000<100)||roots.size()==0) {
     double multi=1;
     if (ingamet>15000){
        multi=(double)ingamet/10000;
@@ -102,6 +112,7 @@ if (lose){
       if (x>=10) roots.add(new Bomb());
       else if (x >3 && x<7)  roots.add(new Potato());
     }
+  }
   }
 
   fill(0);  
@@ -118,5 +129,12 @@ void mousePressed() {
     for (Button b : buttons) {
       b.click();
     }
+  }
+}
+
+void keyPressed(){
+  if (keyPressed){
+    if (key==32)
+      pause=!pause;
   }
 }
