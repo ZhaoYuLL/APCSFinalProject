@@ -34,8 +34,8 @@ void draw() {
     fill(213,44,32);
     textSize(20);
     if(sessionScore > highScore) highScore = sessionScore;
-    text("Score: " + sessionScore, width-180, 50);
-    text("Highscore: " + highScore, width-180, 100);
+    //text("Score: " + sessionScore, width-180, 50);
+    text("Highscore: " + highScore, width-180, 50);
     score=0;
   }
 
