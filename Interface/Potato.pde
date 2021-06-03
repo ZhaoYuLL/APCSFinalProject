@@ -1,7 +1,7 @@
 public class Potato extends Root{
   PImage potato;
   Potato(){
-    super(20+(int)(Math.random()*30),random(width+1),height,random(6)-3,-(random(4)+13), color(#A05F10));
+    super(20+(int)(Math.random()*30),random(50,width-50),height,random(6)-3,-(random(4)+13), color(#A05F10));
   potato=loadImage("SwagPotato.png");
   potato.resize((int)(this.radius*2),(int)(this.radius*2));
 }

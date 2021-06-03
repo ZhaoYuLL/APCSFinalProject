@@ -13,7 +13,7 @@ Root(float rad,float x, float y, float dx, float dy, int col){
   this.remove=false;
 }
 Root(){
-  this(20+(int)(Math.random()*30),random(width+1),height,random(6)-3,-(random(4)+13), color(random(255),random(255),random(255)));
+  this(20+(int)(Math.random()*30),random(50,width-50),height,random(6)-3,-(random(4)+13), color(random(255),random(255),random(255)));
 }
 void move(){
   x+=dx;
