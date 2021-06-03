@@ -10,6 +10,15 @@ PImage bg, ts;
 PFont font;
 int sessionScore;
 int highScore;
+//mouse particles
+int numShapes = 7;
+int shape = 0;   
+int shapeSize = 13;
+float[] xCor = new float[numShapes];  
+float[] yCor = new float[numShapes];  
+float[] shapeR = new float[numShapes]; 
+float[] shapeG = new float[numShapes];
+float[] shapeB = new float[numShapes];
 boolean pause;
 void setup() {
   font = loadFont("GB.vlw");
@@ -63,8 +72,20 @@ if (lose){
    else{ 
   ingamet=millis()-Stime;
   background(bg);
+   //mouse particles
   stroke(255);
   line(pmouseX,pmouseY,mouseX,mouseY);
+  xCor[shape] = mouseX;
+  yCor[shape] = mouseY;
+  shapeR[shape] = random(255);
+  shapeG[shape] = random(255);
+  shapeB[shape] = random(255);
+  for (int i=0; i<numShapes; i++) {
+    fill(shapeR[i],shapeG[i],shapeB[i]);
+    ellipse(xCor[i], yCor[i], shapeSize, shapeSize);
+  }
+  shape++;
+  if(shape >= numShapes) shape = 0; 
   fill(255);
   //rect(20, 5, 200, 100, 7);
   //rect(width-220, 5, 200, 100, 7);
@@ -106,7 +127,7 @@ if (lose){
        multi=(double)ingamet/10000;
     }
       for (int i=0; i<(int)(random(10)*multi); i++) {
-      int x = (int)(Math.random() * ((13 -1) + 1)) + 1;
+      int x = (int)(Math.random() * ((12 -1) + 1)) + 1;
       if (x<=3) roots.add(new Radish());
       if (x>=7) roots.add(new Onion());
       if (x>=10) roots.add(new Bomb());
