@@ -34,8 +34,8 @@ void draw() {
     fill(213,44,32);
     textSize(20);
     if(sessionScore > highScore) highScore = sessionScore;
-    //text("Score: " + sessionScore, width-180, 50);
-    text("Highscore: " + highScore, width-180, 50);
+    text("Last Round Score: " + sessionScore, width-180, 50);
+    text("Highscore: " + highScore, width-180, 100);
     score=0;
   }
 
@@ -69,7 +69,7 @@ if (lose){
     r.click();//enables slashing
     //if goes off the bottom, remove it
     if(r.y>=height+r.radius){
-      if (r.bomb==false)
+      if (r.bomb==false&&r.deadroot==false)
     lives --;
     }
     if (r.y>=height+r.radius||r.remove==true) {
@@ -81,6 +81,11 @@ if (lose){
         } 
         else{
         score++;
+        if (r.dy>0)
+        roots.add(new Deadroot(r.radius,r.x,r.y,r.dx,r.dy,color(0)));
+        else{
+        roots.add(new Deadroot(r.radius,r.x,r.y,r.dx,-r.dy,color(0)));
+        }
         }
       }
     } 
