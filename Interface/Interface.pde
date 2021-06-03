@@ -90,7 +90,7 @@ if (lose){
        multi=(double)ingamet/10000;
     }
       for (int i=0; i<(int)(random(10)*multi); i++) {
-      int x = (int)(Math.random() * ((30 -1) + 1)) + 1;
+      int x = (int)(Math.random() * ((13 -1) + 1)) + 1;
       if (x<=3) roots.add(new Radish());
       if (x>=7) roots.add(new Onion());
       if (x>=10) roots.add(new Bomb());
