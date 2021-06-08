@@ -103,7 +103,8 @@ if (lose){
       if (r.bomb==false&&r.deadroot==false)
     lives --;
     }
-    if (r.y>=height+r.radius||r.remove==true) {
+    if (r.y>=height+r.radius||r.remove==true) {    
+      float angle= atan2(mouseY-r.y,mouseX-r.x);
       roots.remove(r);
       if (r.remove==true){
         if (r.bomb==true){
@@ -113,10 +114,10 @@ if (lose){
         else{
         score++;
         if (r.dy>0)
-        roots.add(new Deadroot(r.radius,r.x,r.y,r.dx,r.dy,color(0)));
+        roots.add(new Deadroot(r.radius,r.x,r.y,r.dx,r.dy,color(0),angle));
         
         else{
-        roots.add(new Deadroot(r.radius,r.x,r.y,r.dx,-r.dy,color(0)));
+        roots.add(new Deadroot(r.radius,r.x,r.y,r.dx,-r.dy,color(0),angle));
         }
        
         }

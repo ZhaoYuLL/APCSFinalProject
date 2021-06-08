@@ -1,6 +1,7 @@
 public class Deadroot extends Root{
   PImage deadroots;
- Deadroot(float rad,float x, float y, float dx, float dy, int col){
+  float angle;
+ Deadroot(float rad,float x, float y, float dx, float dy, int col, float angle){
   radius=rad;
   this.x=x;
   this.y=y;
@@ -9,7 +10,9 @@ public class Deadroot extends Root{
   c = color(col);
   this.remove=false;
   this.deadroot=true;
+  this.angle=angle;
   deadroots=loadImage("SplitDadish2(1).png");
+  rotate(this.angle);
   deadroots.resize((int)(this.radius*2),(int)(this.radius*2));
   
 }
