@@ -89,7 +89,11 @@ if (lose){
   shapeB[shape] = random(255);
   for (int i=0; i<numShapes; i++) {
     fill(shapeR[i],shapeG[i],shapeB[i]);
+    if(score < 20)
     ellipse(xCor[i], yCor[i], shapeSize, shapeSize);
+    if(score > 20)
+    rect(xCor[i], yCor[i], shapeSize, shapeSize);
+    //WIP
   }
   shape++;
   if(shape >= numShapes) shape = 0; 
