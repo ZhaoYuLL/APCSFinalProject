@@ -6,6 +6,18 @@ Our project will be a Processing game based off of the mobile sensation Fruit Ni
 
 [Prototype](https://docs.google.com/document/d/1LKkPBnfiCc2c-gIcOuF8BnEu1Ett5MtOisJ37yS0cz4/edit?usp=sharing)
 
+DevLog 6/7:
+---
+Zhao Yu Lin: Updated visuals to the pause screen. New mouse trails based off highscore(WIP).
+
+Brandon O'Connor: Pause now pauses the timer. Deadroot has new sprite and some updates.
+
+DevLog 6/5:
+---
+Zhao Yu Lin: UML clean up + presentation.
+
+Brandon O' Connor: Worked on prototype clean up + presentation. Made new sprites.
+
 DevLog 6/3
 ------
 Zhao Yu Lin: Created mouse effects, fixed vibrating on border, titlescreen update, lowered chance of bomb.
