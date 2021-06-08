@@ -14,6 +14,8 @@ int highScore;
 int numShapes = 7;
 int shape = 0;   
 int shapeSize = 13;
+int pausestart;
+int pausetime;
 float[] xCor = new float[numShapes];  
 float[] yCor = new float[numShapes];  
 float[] shapeR = new float[numShapes]; 
@@ -58,7 +60,9 @@ if (lose){
       lose=false;
       lives = 3;
       b.clicked = false;
-      Stime=millis();      }     
+      Stime=millis();     
+      pausetime=0;
+      }     
     }
   }
   
@@ -73,7 +77,7 @@ if (lose){
     text("Paused",width/2,110);
     }
    else{ 
-  ingamet=millis()-Stime;
+  ingamet=millis()-Stime-pausetime;
   background(bg);
    //mouse particles
   stroke(255);
@@ -163,5 +167,11 @@ void keyPressed(){
   if (keyPressed){
     if (key==32)
       pause=!pause;
+      if (pause==true){
+        pausestart=millis();
+      }
+      else if (pause==false){
+        pausetime=millis()-pausestart;
+      }
   }
 }
