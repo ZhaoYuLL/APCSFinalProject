@@ -1,7 +1,9 @@
 public class Deadroot extends Root{
-  PImage deadroots;
+  ArrayList<PImage> deadroots;
   float angle;
- Deadroot(float rad,float x, float y, float dx, float dy, int col, float angle){
+  int tick;
+  int addtime;
+ Deadroot(float rad,float x, float y, float dx, float dy, int col, float angle, int ind){
   radius=rad;
   this.x=x;
   this.y=y;
@@ -11,18 +13,31 @@ public class Deadroot extends Root{
   this.remove=false;
   this.deadroot=true;
   this.angle=angle;
-  deadroots=loadImage("SplitDadish2(1).png");
+  index=ind;
+  deadroots= new ArrayList<PImage>();
+  deadroots.add(loadImage("SplitDadish2(1).png"));
+  deadroots.add(loadImage("SplitPotatoProto(1).png"));
+  deadroots.add(loadImage("SplitWOnion2.png"));
+  deadroots.add(loadImage("BombaO.png"));
+    deadroots.add(loadImage("BombaEx.png"));
   //rotate(this.angle);
-  deadroots.resize((int)(this.radius*2),(int)(this.radius*2));
-  
+  for (int i=0; i<deadroots.size();i++){
+    deadroots.get(i).resize((int)(this.radius*2),(int)(this.radius*2));
+   }
+  addtime=millis();
 }
 void display(){
   //noStroke();
   //fill(c);
   //ellipse(x-radius, y, radius/4, radius/4);
   //ellipse(x+radius, y, radius/4, radius/4);
+  tick=millis()-addtime;
+  if (tick>500&&index==3)
+    index++;
+  if (tick>600&&index==4)
+    remove=true;
   imageMode(CENTER);
-  image(deadroots,x,y);
+  image(deadroots.get(index),x,y);
   
 }
 void click(){

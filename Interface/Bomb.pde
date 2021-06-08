@@ -5,6 +5,7 @@ Bomb(){
   this.bomb=true;
   bomba=loadImage("Bomba.png");
   bomba.resize((int)(this.radius*2),(int)(this.radius*2));
+  index=3;
 }
 void display(){
   noStroke();

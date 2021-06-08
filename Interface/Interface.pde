@@ -118,18 +118,19 @@ if (lose){
       float angle= atan2(mouseY-r.y,mouseX-r.x);
       roots.remove(r);
       if (r.remove==true){
+        if (r.dy>0)
+        roots.add(new Deadroot(r.radius,r.x,r.y,r.dx,r.dy,color(0),angle, r.index));
+        
+        else{
+        roots.add(new Deadroot(r.radius,r.x,r.y,r.dx,-r.dy,color(0),angle, r.index));
+        }
         if (r.bomb==true){
           score-=5;
           lives--;
         } 
         else{
         score++;
-        if (r.dy>0)
-        roots.add(new Deadroot(r.radius,r.x,r.y,r.dx,r.dy,color(0),angle));
         
-        else{
-        roots.add(new Deadroot(r.radius,r.x,r.y,r.dx,-r.dy,color(0),angle));
-        }
        
         }
       }
