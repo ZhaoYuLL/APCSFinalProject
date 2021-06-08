@@ -6,7 +6,7 @@ int lives;
 float Stime=0;
 boolean lose;
 float ingamet=0;
-PImage bg, ts;
+PImage bg, ts, pauseSign;
 PFont font;
 int sessionScore;
 int highScore;
@@ -25,6 +25,7 @@ void setup() {
   textFont(font);
   ts = loadImage("titleScreen.jpg");
   bg = loadImage("background.png");
+  pauseSign = loadImage("sign.png");
   ts.resize(1000,800);
   bg.resize(1000,800); //change
   frameRate(30);
@@ -64,11 +65,13 @@ if (lose){
   else {
     if (pause){
     background(bg);
-     text("Lives: "+lives+"\nTime: "+(int)(Math.round(ingamet)/1000), 60, 50);
+    image(pauseSign, width/2, 50);
+    fill(213,44,32);
+    text("Lives: "+lives+"\nTime: "+(int)(Math.round(ingamet)/1000), 60, 50);
     text("Score: " + score, width-180, 50);
     textSize(100);
-    text("Paused",width/2,50);
-  }
+    text("Paused",width/2,110);
+    }
    else{ 
   ingamet=millis()-Stime;
   background(bg);
@@ -141,7 +144,7 @@ if (lose){
 
   fill(0);  
   textSize(20);
-  text("FPS: "+frameRate+"\nRoots: "+roots.size(), width/2, 20); //hide laterrrrrrrrbac
+  //text("FPS: "+frameRate+"\nRoots: "+roots.size(), width/2, 20); //hide laterrrrrrrrbac
   }
 }
 
