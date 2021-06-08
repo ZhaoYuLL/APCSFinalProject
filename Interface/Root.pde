@@ -4,6 +4,8 @@ color c;
 boolean remove;
 boolean bomb=false;
 boolean deadroot=false;
+int index=0;
+boolean removesoon=false;
 Root(float rad,float x, float y, float dx, float dy, int col){
   radius=rad;
   this.x=x;
@@ -29,7 +31,11 @@ void display(){
     ellipse(x, y, radius*2, radius*2);
 }
 void click(){
-if (dist(x,y,mouseX,mouseY)<=radius)
+if (dist(x,y,mouseX,mouseY)<=radius){
+   //index++;
+   //removesoon=true;
+   //delay(100);
    remove=true;
+}
 }
 }

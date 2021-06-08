@@ -1,15 +1,19 @@
 public class Radish extends Root{
-  PImage radish;
+  ArrayList<PImage> radishes;
+
   Radish(){
     super(20+(int)(Math.random()*30),random(50,width-50),height,random(6)-3,-(random(4)+13), color(255,0,0));
-   radish=loadImage("Dadish2(1).png");
-  radish.resize((int)(this.radius*2),(int)(this.radius*2));
+    radishes= new ArrayList<PImage>();
+   radishes.add(loadImage("Dadish2(1).png"));
+   for (int i=0; i<radishes.size();i++){
+    radishes.get(i).resize((int)(this.radius*2),(int)(this.radius*2));
+   }
   }
   void display(){
   noStroke();
     fill(c);
     //ellipse(x, y, radius*2, radius*2);
     imageMode(CENTER);
-    image(radish,x,y);
+    image(radishes.get(index),x,y);
 }
 }

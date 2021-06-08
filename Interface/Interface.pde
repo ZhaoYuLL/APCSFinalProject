@@ -114,14 +114,16 @@ if (lose){
         score++;
         if (r.dy>0)
         roots.add(new Deadroot(r.radius,r.x,r.y,r.dx,r.dy,color(0)));
+        
         else{
         roots.add(new Deadroot(r.radius,r.x,r.y,r.dx,-r.dy,color(0)));
         }
+       
         }
       }
     } 
   }
-  if ((ingamet%4000>50&&ingamet%4000<100)||roots.size()==0) {
+  if ((ingamet%5000>50&&ingamet%5000<100)||roots.size()==0) {
     double multi=1;
     if (ingamet>15000){
        multi=(double)ingamet/10000;
