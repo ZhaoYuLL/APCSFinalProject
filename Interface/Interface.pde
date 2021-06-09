@@ -98,7 +98,8 @@ if (lose){
   shape++;
   if(shape >= numShapes) shape = 0; 
   }
-  if(highScore >= 0){
+  if(highScore >= 4){
+    //stars
     smooth(); 
   noStroke(); 
   for(int i = 0; i<x.length-1; i++) {
@@ -118,6 +119,24 @@ if (lose){
   x[x.length-1] = mouseX; 
   y[y.length-1] = mouseY;
   } 
+  if(highScore >= 0){
+    smooth(); 
+  noStroke(); 
+  for(int i = 0; i<x.length-1; i++) {
+    x[i] = x[i+1];
+    y[i] = y[i+1]; 
+    //fill(i*2,i*3,i*4);
+    fill(255-i*5);
+    ellipse(x[i], y[i], i-50, i-50); 
+  }
+  x[x.length-1] = mouseX; 
+  y[y.length-1] = mouseY;
+  for(int i = 0; i<x.length-1; i++) {
+    noStroke();
+    fill(255-i*5);
+    ellipse(x[i],y[i],i-30,i-30);
+  }
+  }
   fill(255);
   //rect(20, 5, 200, 100, 7);
   //rect(width-220, 5, 200, 100, 7);
