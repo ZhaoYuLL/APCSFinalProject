@@ -87,7 +87,7 @@ if (lose){
   shapeR[shape] = random(255);
   shapeG[shape] = random(255);
   shapeB[shape] = random(255);
-  if(highScore >= 2){
+  if(highScore >= 0 && highScore < 4){
     stroke(255);
     line(pmouseX,pmouseY,mouseX,mouseY);
     for (int i=0; i<numShapes; i++) {
@@ -98,7 +98,7 @@ if (lose){
   shape++;
   if(shape >= numShapes) shape = 0; 
   }
-  if(highScore >= 4){
+  if(highScore >= 4 && highScore < 6){
     //stars
     smooth(); 
   noStroke(); 
@@ -119,7 +119,7 @@ if (lose){
   x[x.length-1] = mouseX; 
   y[y.length-1] = mouseY;
   } 
-  if(highScore >= 0){
+  if(highScore >= 6){
     smooth(); 
   noStroke(); 
   for(int i = 0; i<x.length-1; i++) {
