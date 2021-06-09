@@ -15,11 +15,16 @@ public class Deadroot extends Root{
   this.angle=angle;
   index=ind;
   deadroots= new ArrayList<PImage>();
+  if (index==0)
   deadroots.add(loadImage("SplitDadish2(1).png"));
+    if (index==1)
   deadroots.add(loadImage("SplitPotatoProto(1).png"));
+    if (index==2)
   deadroots.add(loadImage("SplitWOnion2.png"));
+    if (index==3){
   deadroots.add(loadImage("BombaO.png"));
-    deadroots.add(loadImage("BombaEx.png"));
+   deadroots.add(loadImage("BombaEx.png"));
+    }
   //rotate(this.angle);
   for (int i=0; i<deadroots.size();i++){
     deadroots.get(i).resize((int)(this.radius*2),(int)(this.radius*2));
@@ -34,10 +39,12 @@ void display(){
   tick=millis()-addtime;
   if (tick>500&&index==3)
     index++;
-  if (tick>600&&index==4)
-    remove=true;
   imageMode(CENTER);
-  image(deadroots.get(index),x,y);
+  if (index==4)
+      image(deadroots.get(1),x,y);
+  else{    
+  image(deadroots.get(0),x,y);
+  }
   
 }
 void click(){
