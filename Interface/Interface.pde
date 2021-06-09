@@ -21,6 +21,8 @@ float[] yCor = new float[numShapes];
 float[] shapeR = new float[numShapes]; 
 float[] shapeG = new float[numShapes];
 float[] shapeB = new float[numShapes];
+float[] x = new float[20]; //need some adjusting
+float[] y = new float[20]; 
 boolean pause;
 void setup() {
   font = loadFont("GB.vlw");
@@ -80,23 +82,42 @@ if (lose){
   ingamet=millis()-Stime-pausetime;
   background(bg);
    //mouse particles
-  stroke(255);
-  line(pmouseX,pmouseY,mouseX,mouseY);
   xCor[shape] = mouseX;
   yCor[shape] = mouseY;
   shapeR[shape] = random(255);
   shapeG[shape] = random(255);
   shapeB[shape] = random(255);
-  for (int i=0; i<numShapes; i++) {
+  if(highScore >= 2){
+    stroke(255);
+    line(pmouseX,pmouseY,mouseX,mouseY);
+    for (int i=0; i<numShapes; i++) {
     fill(shapeR[i],shapeG[i],shapeB[i]);
-    if(highScore < 20)
     ellipse(xCor[i], yCor[i], shapeSize, shapeSize);
-    if(highScore >= 20)
-    rect(xCor[i], yCor[i], shapeSize, shapeSize);
     //WIP
   }
   shape++;
   if(shape >= numShapes) shape = 0; 
+  }
+  if(highScore >= 0){
+    smooth(); 
+  noStroke(); 
+  for(int i = 0; i<x.length-1; i++) {
+    
+    x[i] = x[i+1];
+    y[i] = y[i+1]; 
+    fill(i*2,i*3,i*4);
+    pushMatrix(); 
+    translate(mouseX,mouseY);
+    rotate(frameCount / -100.0);
+    star(0, 0, 8.7, 20, 5); 
+    popMatrix();
+    fill(i*2,i*3,i*4);
+    star(x[i], y[i], 8.7, 20, 5);  
+    //rect(x[i], y[i], i-50, i-50);  
+  }
+  x[x.length-1] = mouseX; 
+  y[y.length-1] = mouseY;
+  } 
   fill(255);
   //rect(20, 5, 200, 100, 7);
   //rect(width-220, 5, 200, 100, 7);
@@ -179,4 +200,18 @@ void keyPressed(){
         pausetime=millis()-pausestart;
       }
   }
+}
+void star(float x, float y, float radius1, float radius2, int npoints) {
+  float angle = TWO_PI / npoints;
+  float halfAngle = angle/2.0;
+  beginShape();
+  for (float a = 0; a < TWO_PI; a += angle) {
+    float sx = x + cos(a) * radius2;
+    float sy = y + sin(a) * radius2;
+    vertex(sx, sy);
+    sx = x + cos(a+halfAngle) * radius1;
+    sy = y + sin(a+halfAngle) * radius1;
+    vertex(sx, sy);
+  }
+  endShape(CLOSE);
 }
