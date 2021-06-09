@@ -1,4 +1,5 @@
-
+import processing.sound.*;
+SoundFile themeMusic;
 ArrayList<Root> roots;
 ArrayList<Button> buttons;
 int score;
@@ -25,6 +26,9 @@ float[] x = new float[20]; //need some adjusting
 float[] y = new float[20]; 
 boolean pause;
 void setup() {
+  themeMusic = new SoundFile(this, "data/themeMusic.mp3");
+  themeMusic.amp(0.05);
+  themeMusic.play();
   font = loadFont("GB.vlw");
   textFont(font);
   ts = loadImage("titleScreen.jpg");
