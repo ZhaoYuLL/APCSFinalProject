@@ -9,7 +9,8 @@ float ingamet=0;
 PImage bg, ts, pauseSign;
 PFont font;
 int sessionScore;
-int highScore;
+int nhighScore;
+int thighScore;
 //mouse particles
 int numShapes = 7;
 int shape = 0;   
@@ -24,6 +25,7 @@ float[] shapeB = new float[numShapes];
 float[] x = new float[20]; //need some adjusting
 float[] y = new float[20]; 
 boolean pause;
+boolean timed;
 void setup() {
   font = loadFont("GB.vlw");
   textFont(font);
@@ -38,7 +40,8 @@ void setup() {
   lives=3;
   roots = new ArrayList<Root>();
   buttons= new ArrayList<Button>();
-  buttons.add( new Button("Play",width/2-100,height/2-50,200,100));
+  buttons.add( new Button("Normal",width/2-100,height/2-50,200,100));
+  buttons.add( new Button("Timed",width/2-100,height/2+100,200,100));
   lose=true;
   pause=false;
 }
@@ -49,22 +52,34 @@ void draw() {
     roots.clear();
     fill(213,44,32);
     textSize(20);
-    if(sessionScore > highScore) highScore = sessionScore;
+    if (sessionScore >thighScore&&timed==true)thighScore = sessionScore;
+    else if(sessionScore > nhighScore) nhighScore = sessionScore;
     text("Last Round Score: " + sessionScore, width-180, 50);
-    text("Highscore: " + highScore, width-180, 100);
+    text("Normal Mode Highscore: " + nhighScore, width-180, 100);
+    text("Timed Mode Highscore: " + thighScore, width-180, 150);
     score=0;
+    timed=false;
   }
 
 if (lose){
     for (Button b: buttons){
       b.Draw();
-      if (b.clicked==true){
+      if (b.clicked==true&&b.label.equals("Normal")){
       lose=false;
       lives = 3;
       b.clicked = false;
       Stime=millis();     
       pausetime=0;
+      timed=false;
       }     
+      if (b.clicked==true&&b.label.equals("Timed")){
+      lose=false;
+      lives = 3;
+      b.clicked = false;
+      Stime=millis();     
+      pausetime=0;
+      timed=true;
+      }
     }
   }
   
@@ -80,6 +95,9 @@ if (lose){
     }
    else{ 
   ingamet=millis()-Stime-pausetime;
+  if (timed==true){
+    ingamet=Stime+30000-millis();
+  }
   background(bg);
    //mouse particles
   xCor[shape] = mouseX;
@@ -87,7 +105,7 @@ if (lose){
   shapeR[shape] = random(255);
   shapeG[shape] = random(255);
   shapeB[shape] = random(255);
-  if(highScore >= 2){
+  if(nhighScore >= 2||thighScore >= 2){
     stroke(255);
     line(pmouseX,pmouseY,mouseX,mouseY);
     for (int i=0; i<numShapes; i++) {
@@ -98,7 +116,7 @@ if (lose){
   shape++;
   if(shape >= numShapes) shape = 0; 
   }
-  if(highScore >= 4){
+  if(nhighScore >= 4||thighScore >= 4){
     //stars
     smooth(); 
   noStroke(); 
@@ -119,7 +137,7 @@ if (lose){
   x[x.length-1] = mouseX; 
   y[y.length-1] = mouseY;
   } 
-  if(highScore >= 0){
+  if(nhighScore >= 0||thighScore >= 4){
     smooth(); 
   noStroke(); 
   for(int i = 0; i<x.length-1; i++) {
@@ -178,10 +196,12 @@ if (lose){
   }
   if ((ingamet%5000>50&&ingamet%5000<100)||roots.size()==0) {
     double multi=1;
-    if (ingamet>15000){
+    if (timed==true)
+      multi=(int)random(1,3)+3;
+    else if (ingamet>10000){
        multi=(double)ingamet/10000;
     }
-      for (int i=0; i<(int)(random(10)*multi); i++) {
+      for (int i=0; i<(int)(random(4)*multi)+3; i++) {
       int x = (int)(Math.random() * ((12 -1) + 1)) + 1;
       if (x<=3) roots.add(new Radish());
       if (x>=7) roots.add(new Onion());
@@ -189,6 +209,9 @@ if (lose){
       else if (x >3 && x<7)  roots.add(new Potato());
     }
   }
+      if (timed==true&&ingamet<=0){
+        lives=0;
+      }
   }
 
   fill(0);  
