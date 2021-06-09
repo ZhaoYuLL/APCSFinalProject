@@ -28,7 +28,7 @@ boolean pause;
 void setup() {
   themeMusic = new SoundFile(this, "data/themeMusic.mp3");
   themeMusic.amp(0.05);
-  themeMusic.play();
+  themeMusic.loop();
   font = loadFont("GB.vlw");
   textFont(font);
   ts = loadImage("titleScreen.jpg");
