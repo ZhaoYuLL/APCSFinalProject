@@ -193,7 +193,7 @@ if (lose){
 
   fill(0);  
   textSize(20);
-  //text("FPS: "+frameRate+"\nRoots: "+roots.size(), width/2, 20); //hide laterrrrrrrrbac
+  text("FPS: "+frameRate+"\nRoots: "+roots.size(), width/2, 20); //hide laterrrrrrrrbac
   }
 }
 
