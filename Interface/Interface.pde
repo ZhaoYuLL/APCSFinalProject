@@ -1,5 +1,6 @@
-/*import processing.sound.*;
-SoundFile themeMusic;*/
+import processing.sound.*;
+SoundFile themeMusic;
+SoundFile sliced;
 ArrayList<Root> roots;
 ArrayList<Button> buttons;
 int score;
@@ -28,9 +29,10 @@ float[] y = new float[20];
 boolean pause;
 boolean timed;
 void setup() {
-  /*themeMusic = new SoundFile(this, "data/themeMusic.mp3");
+  themeMusic = new SoundFile(this, "data/themeMusic.mp3");
+  sliced = new SoundFile(this, "data/slice.mp3");
   themeMusic.amp(0.05);
-  themeMusic.loop();*/
+  themeMusic.loop();
   font = loadFont("GB.vlw");
   textFont(font);
   ts = loadImage("titleScreen.jpg");
@@ -199,7 +201,7 @@ if (lose){
         } 
         else{
         score++;
-        
+        sliced.play();
        
         }
       }
