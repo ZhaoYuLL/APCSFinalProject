@@ -135,7 +135,10 @@ if (lose){
   shapeR[shape] = random(255);
   shapeG[shape] = random(255);
   shapeB[shape] = random(255);
-
+  if(nhighScore < 50 || thighScore < 30){
+    stroke(255);
+    line(pmouseX,pmouseY,mouseX,mouseY);
+  }
   if(nhighScore >= 50&&thighScore <= 30){ //rainbow
     stroke(255);
     line(pmouseX,pmouseY,mouseX,mouseY);
@@ -259,9 +262,16 @@ if (lose){
       }
   }
 
-  fill(0);  
   textSize(20);
-  text("FPS: "+frameRate, width/2, 20); //hide laterrrrrrrrbac
+  if(frameRate > 27){
+    fill(80,220,100);
+    text("FPS: "+nf(frameRate,0,2), width/2, 20); 
+  }
+  else{
+    fill(184,15,10);
+    text("FPS: "+nf(frameRate,0,2), width/2, 20); 
+  }
+  
   }
 }
 
