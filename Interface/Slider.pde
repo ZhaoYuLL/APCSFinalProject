@@ -2,7 +2,7 @@ class Slider {
   float x,y,w,h;
   float leftX;
   boolean lock;
-  int t;
+  double t;
  
   Slider (float x, float y, float w, float h) {
     this.x=x;
@@ -18,6 +18,7 @@ class Slider {
     fill(255);
     rect(leftX, y, right, 4); //line
     int soundVolume = int(map(x, leftX, right, 100, 0));
+    t=soundVolume;
     fill(200);
     rect(x, y, w, h);
     fill(0);

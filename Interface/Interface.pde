@@ -2,12 +2,13 @@ import processing.sound.*;
 SoundFile themeMusic,sliced, kaboom;
 ArrayList<Root> roots;
 ArrayList<Button> buttons;
+Button SettingsB;
 Slider[] sliders =  new Slider[3];
-int score, lives,sessionScore,nhighScore,thighScore,pausestart,pausetime;;
+int score, lives,sessionScore,nhighScore,thighScore,pausestart,pausetime;
 float Stime=0;
 boolean lose, pause, timed, setting;
 float ingamet=0;
-PImage bg, ts, pauseSign;
+PImage bg, ts,sbg, pauseSign;
 PFont font;
 //mouse particles
 int numShapes = 7;
@@ -33,21 +34,24 @@ void setup() {
   textFont(font);
   ts = loadImage("titleScreen.jpg");
   bg = loadImage("background.png");
+  sbg= loadImage("SettingsBG.png");
   pauseSign = loadImage("sign.png");
   ts.resize(1000,800);
   bg.resize(1000,800); //change
+  sbg.resize(1000,800);
   frameRate(30);
   background(ts);
   size(1000, 800);
   sliders[0] = new Slider(20, 60, 40, 20);
   sliders[1] = new Slider(20, 160, 40, 20);
   sliders[2] = new Slider(20, 260, 40, 20);
-  lives=3;
+  lives=0;
   roots = new ArrayList<Root>();
   buttons= new ArrayList<Button>();
   buttons.add( new Button("Normal",width/2-100,height/2-50,200,100));
   buttons.add( new Button("Timed",width/2-100,height/2+100,200,100));
-  buttons.add( new Button("Setting",width/2-100,height/2+250,200,100));
+  buttons.add( new Button("Settings",width/2-100,height/2+250,200,100));
+  //SettingsB= new Button("Settings",width/2-100,height/2+250,200,100);
   lose=true;
   pause=false;
 }
@@ -72,7 +76,7 @@ void draw() {
 if (lose){
     for (Button b: buttons){
       b.Draw();
-      if (b.clicked==true&&b.label.equals("Normal")){
+      if (b.clicked==true&&b.label.equals("Normal")&&!setting){
         lose=false;
         lives = 3;
         b.clicked = false;
@@ -81,7 +85,7 @@ if (lose){
         timed=false;
         score=0;
       }     
-      if (b.clicked==true&&b.label.equals("Timed")){
+      if (b.clicked==true&&b.label.equals("Timed")&&!setting){
         lose=false;
         lives = 3;
         b.clicked = false;
@@ -90,17 +94,23 @@ if (lose){
         timed=true;
         score=0;
       }
-      if (b.clicked==true&&b.label.equals("Setting")){
-        textSize(12);
-        background(0);
-        setting = !setting;   
-        for (Slider s:sliders)
-        s.draw();
-        themeMusic.amp(sliders[0].t/100.0);
-        kaboom.amp(sliders[0].t/100.0);
-        sliced.amp(sliders[0].t/100.0);;
+      if (b.clicked==true&&b.label.equals("Settings")){
+        setting=!setting;
+        b.clicked=false;
       }
     }
+    if (setting){
+    background(sbg);
+    buttons.get(2).Draw();
+    textSize(15);
+    for (Slider s:sliders)
+        s.draw();
+    themeMusic.amp((float)(sliders[0].t/100.0)/4);
+    kaboom.amp((float)sliders[1].t/100.0);
+    sliced.amp((float)sliders[2].t/100.0);
+
+  }
+      
   }
   
   else {
@@ -138,7 +148,7 @@ if (lose){
     if(shape >= numShapes) shape = 0; 
   }
 
-  if(thighScore > 30&&nhighScore<50){//stars
+  if(thighScore < 30&&nhighScore>=10&&nhighScore<50){//stars
     //stars
     smooth(); 
     noStroke(); 
