@@ -16,12 +16,23 @@ public class Deadroot extends Root{
   index=ind;
   deadroots= new ArrayList<PImage>();
   if (index==0){
+    if (angle<=-3*PI/4||(angle<=PI/4&&angle>=-PI/4)||angle>=3*PI/4)
+      deadroots.add(loadImage("SplitDadishH.png"));
+    else
   deadroots.add(loadImage("SplitDadish2(1).png"));
   }
-    if (index==1)
+    if (index==1){
+      if (angle<=-3*PI/4||(angle<=PI/4&&angle>=-PI/4)||angle>=3*PI/4)
+      deadroots.add(loadImage("SplitSwagPotatoH.png"));
+    else
   deadroots.add(loadImage("SplitPotatoProto(1).png"));
-    if (index==2)
+    }
+    if (index==2){
+      if (angle<=-3*PI/4||(angle<=PI/4&&angle>=-PI/4)||angle>=3*PI/4)
+      deadroots.add(loadImage("SplitWOnionH.png"));
+    else
   deadroots.add(loadImage("SplitWOnion2.png"));
+    }
     if (index==3){
   deadroots.add(loadImage("BombaO.png"));
    deadroots.add(loadImage("BombaEx.png"));
