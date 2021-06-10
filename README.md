@@ -4,13 +4,26 @@ Group members: Brandon O'Connor, Zhao Yu lin
 
 Our project will be a Processing game based off of the mobile sensation Fruit Ninja. However, to avoid copyright infringement, we will have the game centered around cutting root vegetables. In order to *beet* the game, the player will have to survive an onslaught of roots being tossed into the air, and the player must “cut” the roots with their mouse before it falls to the bottom of the screen, or else they will lose a life. But be careful, as you play, the number of roots thrown each second will increase, so only a true Root Ninja will be able to top the leaderboards. 
 
+Compile/Run Instructions
+Before playing, please add the Sound library provided by Processing. To do so, go to the Sketch tab in processing, then hover import library before clicking on "Add library." Search for "sound," then install the library created by The Processing Foundation.
+
+Features:
+-Different game modes!
+-Unlockable skins when you get certain high scores!
+
 [Prototype](https://docs.google.com/document/d/1LKkPBnfiCc2c-gIcOuF8BnEu1Ett5MtOisJ37yS0cz4/edit?usp=sharing)
+
+DevLog 6/10:
+---
+Zhao Yu Lin: Aesthetics, created sliders class that allows the user to adjust volumes, continued work on trails.
+
+Brandon O'Connor: Aesthetics, implemented sliders class and settings screen, fixed various remaining bugs. 
 
 DevLog 6/9:
 ---
 Zhao Yu Lin: Sound effects for theme music and slicing. Fixed issues with overlapping mouse trails. 
 
-Brandon O'Connor: Implemented explosion sound effect, created timed mode, fixed lag issues in deadroot,
+Brandon O'Connor: Implemented explosion sound effect, created timed mode, fixed lag issues in deadroot.
 
 DevLog 6/7:
 ---
