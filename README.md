@@ -8,7 +8,7 @@ Compile/Run Instructions
 Before playing, please add the Sound library provided by Processing. To do so, go to the Sketch tab in processing, then hover import library before clicking on "Add library." Search for "sound," then install the library created by The Processing Foundation.
 
 Features:
--Different game modes!
+-Different game modes!  
 -Unlockable skins when you get certain high scores!
 
 [Prototype](https://docs.google.com/document/d/1LKkPBnfiCc2c-gIcOuF8BnEu1Ett5MtOisJ37yS0cz4/edit?usp=sharing)
