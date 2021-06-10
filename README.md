@@ -7,7 +7,7 @@ Our project will be a Processing game based off of the mobile sensation Fruit Ni
 Compile/Run Instructions
 Before playing, please add the Sound library provided by Processing. To do so, go to the Sketch tab in processing, then hover import library before clicking on "Add library." Search for "sound," then install the library created by The Processing Foundation.
 
-Features:
+Features:  
 -Different game modes!  
 -Unlockable skins when you get certain high scores!
 
