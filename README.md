@@ -6,6 +6,12 @@ Our project will be a Processing game based off of the mobile sensation Fruit Ni
 
 [Prototype](https://docs.google.com/document/d/1LKkPBnfiCc2c-gIcOuF8BnEu1Ett5MtOisJ37yS0cz4/edit?usp=sharing)
 
+DevLog 6/9:
+---
+Zhao Yu Lin: Sound effects for theme music and slicing. Fixed issues with overlapping mouse trails. 
+
+Brandon O'Connor: Implemented explosion sound effect, created timed mode, fixed lag issues in deadroot,
+
 DevLog 6/7:
 ---
 Zhao Yu Lin: Updated visuals to the pause screen. New mouse trails based off highscore(WIP).
