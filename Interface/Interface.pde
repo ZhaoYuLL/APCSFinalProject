@@ -72,6 +72,8 @@ void draw() {
   }
 
 if (lose){
+  if(!setting)
+    buttons.get(2).label="Settings";
     for (Button b: buttons){
       b.Draw();
       if (b.clicked==true&&b.label.equals("Normal")&&!setting){
@@ -92,7 +94,7 @@ if (lose){
         timed=true;
         score=0;
       }
-      if (b.clicked==true&&b.label.equals("Settings")){
+      if (b.clicked==true&&(b.label.equals("Settings")||b.label.equals("Back"))){
         setting=!setting;
         b.clicked=false;
       }
@@ -100,7 +102,8 @@ if (lose){
     if (setting){
     background(sbg);
     buttons.get(2).Draw();
-    textSize(15);
+    buttons.get(2).label="Back";
+    textSize(14);
     for (Slider s:sliders) s.draw();
     fill(254,237,217);
     textSize(30);
