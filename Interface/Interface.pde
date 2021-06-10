@@ -65,7 +65,7 @@ void draw() {
     if ((sessionScore >thighScore)&&timed==true){
       thighScore = sessionScore;
     }
-    else if ((sessionScore >nhighScore))
+   if ((sessionScore >nhighScore)&&timed==false)
      {nhighScore = sessionScore;
     }
     text("Last Round Score: " + sessionScore, width-180, 50);
@@ -189,7 +189,7 @@ if (lose){
     }
     r.click();//enables slashing
     //if goes off the bottom, remove it
-    if (r.exploding)
+
     if(r.y>=height+r.radius){
       if (r.bomb==false&&r.deadroot==false)
     lives --;
@@ -231,6 +231,11 @@ if (lose){
       else if (x >3 && x<7)  roots.add(new Potato());
     }
   }
+     if (timed==true&&ingamet>0&&ingamet<=10000){
+       fill(0,100+10*(10-ingamet/1000));
+       textSize(100+(15000-ingamet)/75);
+        text((int)(Math.round(ingamet)/1000), width/2, height/2-50);
+      }
       if (timed==true&&ingamet<=0){
         lives=0;
       }
