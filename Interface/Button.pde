@@ -26,7 +26,7 @@ class Button {
   
   void click() {
     if (mouseX > x && mouseX < (x + w) && mouseY > y && mouseY < (y + h)) {
-      clicked=true;
+      clicked=!clicked;
     }
   }
 }
