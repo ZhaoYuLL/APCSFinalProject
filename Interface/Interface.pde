@@ -2,9 +2,10 @@ import processing.sound.*;
 SoundFile themeMusic,sliced, kaboom;
 ArrayList<Root> roots;
 ArrayList<Button> buttons;
+Slider[] sliders =  new Slider[3];
 int score, lives,sessionScore,nhighScore,thighScore,pausestart,pausetime;;
 float Stime=0;
-boolean lose, pause, timed;
+boolean lose, pause, timed, setting;
 float ingamet=0;
 PImage bg, ts, pauseSign;
 PFont font;
@@ -38,11 +39,15 @@ void setup() {
   frameRate(30);
   background(ts);
   size(1000, 800);
+  sliders[0] = new Slider(20, 60, 40, 20);
+  sliders[1] = new Slider(20, 160, 40, 20);
+  sliders[2] = new Slider(20, 260, 40, 20);
   lives=3;
   roots = new ArrayList<Root>();
   buttons= new ArrayList<Button>();
   buttons.add( new Button("Normal",width/2-100,height/2-50,200,100));
   buttons.add( new Button("Timed",width/2-100,height/2+100,200,100));
+  buttons.add( new Button("Setting",width/2-100,height/2+250,200,100));
   lose=true;
   pause=false;
 }
@@ -68,22 +73,32 @@ if (lose){
     for (Button b: buttons){
       b.Draw();
       if (b.clicked==true&&b.label.equals("Normal")){
-      lose=false;
-      lives = 3;
-      b.clicked = false;
-      Stime=millis();     
-      pausetime=0;
-      timed=false;
-       score=0;
+        lose=false;
+        lives = 3;
+        b.clicked = false;
+        Stime=millis();     
+        pausetime=0;
+        timed=false;
+        score=0;
       }     
       if (b.clicked==true&&b.label.equals("Timed")){
-      lose=false;
-      lives = 3;
-      b.clicked = false;
-      Stime=millis();     
-      pausetime=0;
-      timed=true;
-       score=0;
+        lose=false;
+        lives = 3;
+        b.clicked = false;
+        Stime=millis();     
+        pausetime=0;
+        timed=true;
+        score=0;
+      }
+      if (b.clicked==true&&b.label.equals("Setting")){
+        textSize(12);
+        background(0);
+        setting = !setting;   
+        for (Slider s:sliders)
+        s.draw();
+        themeMusic.amp(sliders[0].t/100.0);
+        kaboom.amp(sliders[0].t/100.0);
+        sliced.amp(sliders[0].t/100.0);;
       }
     }
   }
@@ -248,6 +263,9 @@ void mousePressed() {
     for (Button b : buttons) {
       b.click();
     }
+    for (Slider s: sliders) {
+      if (s.mouseOver()) s.lock = true;
+    }
   }
 }
 
@@ -261,6 +279,14 @@ void keyPressed(){
       else if (pause==false){
         pausetime=millis()-pausestart;
       }
+  }
+}
+
+ 
+void mouseReleased() {
+
+  for (Slider s:sliders) {
+    s.lock = false;
   }
 }
 void star(float x, float y, float radius1, float radius2, int npoints) {
