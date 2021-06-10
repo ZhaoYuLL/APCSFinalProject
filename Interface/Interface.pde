@@ -111,57 +111,56 @@ if (lose){
   shapeG[shape] = random(255);
   shapeB[shape] = random(255);
 
-  if(nhighScore >= 2||thighScore >= 2){
+  if(nhighScore <= 35||thighScore <= 30){ //rainbow
     stroke(255);
     line(pmouseX,pmouseY,mouseX,mouseY);
-    for (int i=0; i<numShapes; i++) {
-    fill(shapeR[i],shapeG[i],shapeB[i]);
-    ellipse(xCor[i], yCor[i], shapeSize, shapeSize);
-    //WIP
-  }
-  shape++;
-  if(shape >= numShapes) shape = 0; 
+      for (int i=0; i<numShapes; i++) {
+      fill(shapeR[i],shapeG[i],shapeB[i]);
+      ellipse(xCor[i], yCor[i], shapeSize, shapeSize);
+      
+    }
+    shape++;
+    if(shape >= numShapes) shape = 0; 
   }
 
-  if(nhighScore >= 4||thighScore >= 4){
+  if(nhighScore > 35 && nhighScore <= 40||thighScore > 30 && thighScore <= 40){//stars
     //stars
     smooth(); 
-  noStroke(); 
-  for(int i = 0; i<x.length-1; i++) {
-    
-    x[i] = x[i+1];
-    y[i] = y[i+1]; 
-    fill(i*2,i*3,i*4);
-    pushMatrix(); 
-    translate(mouseX,mouseY);
-    rotate(frameCount / -100.0);
-    star(0, 0, 8.7, 20, 5); 
-    popMatrix();
-    fill(i*2,i*3,i*4);
-    star(x[i], y[i], 8.7, 20, 5);  
-    //rect(x[i], y[i], i-50, i-50);  
-  }
-  x[x.length-1] = mouseX; 
-  y[y.length-1] = mouseY;
+    noStroke(); 
+    for(int i = 0; i<x.length-1; i++) {
+      x[i] = x[i+1];
+      y[i] = y[i+1]; 
+      fill(i*2,i*3,i*4);
+      pushMatrix(); 
+      translate(mouseX,mouseY);
+      rotate(frameCount / -100.0);
+      star(0, 0, 8.7, 20, 5); 
+      popMatrix();
+      fill(i*2,i*3,i*4);
+      star(x[i], y[i], 8.7, 20, 5);  
+      //rect(x[i], y[i], i-50, i-50);  
+    }
+    x[x.length-1] = mouseX; 
+    y[y.length-1] = mouseY;
   } 
 
-  if(nhighScore >= 0||thighScore >= 4){
+  if(nhighScore >= 50||thighScore >= 50){//smoke
     smooth(); 
-  noStroke(); 
-  for(int i = 0; i<x.length-1; i++) {
+    noStroke(); 
+    for(int i = 0; i<x.length-1; i++) {
     x[i] = x[i+1];
     y[i] = y[i+1]; 
     //fill(i*2,i*3,i*4);
     fill(255-i*5);
     ellipse(x[i], y[i], i-50, i-50); 
-  }
-  x[x.length-1] = mouseX; 
-  y[y.length-1] = mouseY;
-  for(int i = 0; i<x.length-1; i++) {
-    noStroke();
-    fill(255-i*5);
-    ellipse(x[i],y[i],i-30,i-30);
-  }
+    }
+    x[x.length-1] = mouseX; 
+    y[y.length-1] = mouseY;
+    for(int i = 0; i<x.length-1; i++) {
+      noStroke();
+      fill(255-i*5);
+      ellipse(x[i],y[i],i-30,i-30);
+    }
   }
   fill(255);
   //rect(20, 5, 200, 100, 7);
