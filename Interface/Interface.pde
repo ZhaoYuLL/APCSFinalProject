@@ -111,7 +111,7 @@ if (lose){
   shapeG[shape] = random(255);
   shapeB[shape] = random(255);
 
-  if(nhighScore <= 35||thighScore <= 30){ //rainbow
+  if(nhighScore >= 50&&thighScore <= 30){ //rainbow
     stroke(255);
     line(pmouseX,pmouseY,mouseX,mouseY);
       for (int i=0; i<numShapes; i++) {
@@ -123,7 +123,7 @@ if (lose){
     if(shape >= numShapes) shape = 0; 
   }
 
-  if(nhighScore > 35 && nhighScore <= 40||thighScore > 30 && thighScore <= 40){//stars
+  if(thighScore > 30&&nhighScore<50){//stars
     //stars
     smooth(); 
     noStroke(); 
@@ -144,7 +144,7 @@ if (lose){
     y[y.length-1] = mouseY;
   } 
 
-  if(nhighScore >= 50||thighScore >= 50){//smoke
+  if(nhighScore >= 50&&thighScore >= 30){//smoke
     smooth(); 
     noStroke(); 
     for(int i = 0; i<x.length-1; i++) {
@@ -217,7 +217,7 @@ if (lose){
        multi=(double)ingamet/10000;
     }
       for (int i=0; i<(int)(random(4)*multi)+3; i++) {
-      int x = (int)(Math.random() * ((20 -1) + 1)) + 1;
+      int x = (int)(Math.random() * ((21 -1) + 1)) + 1;
       if (x<=6) roots.add(new Radish());
       if (x>6&&x<=12) roots.add(new Onion());
       if (x>18) roots.add(new Bomb());
@@ -236,7 +236,7 @@ if (lose){
 
   fill(0);  
   textSize(20);
-  text("FPS: "+frameRate+"\nRoots: "+roots.size(), width/2, 20); //hide laterrrrrrrrbac
+  text("FPS: "+frameRate, width/2, 20); //hide laterrrrrrrrbac
   }
 }
 
