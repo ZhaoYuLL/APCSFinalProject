@@ -227,11 +227,11 @@ if (lose){
        multi=(double)ingamet/10000;
     }
       for (int i=0; i<(int)(random(4)*multi)+3; i++) {
-      int x = (int)(Math.random() * (12 -1) + 1) + 1;
-      if (x<=3) roots.add(new Radish());
-      if (x>=7) roots.add(new Onion());
-      if (x>=10) roots.add(new Bomb());
-      else if (x >3 && x<7)  roots.add(new Potato());
+      int x = (int)(Math.random() * ((20 -1) + 1)) + 1;
+      if (x<=6) roots.add(new Radish());
+      if (x>6&&x<=12) roots.add(new Onion());
+      if (x>18) roots.add(new Bomb());
+      if (x>12&&x<=18)roots.add(new Potato());
     }
   }
      if (timed==true&&ingamet>0&&ingamet<=10000){
