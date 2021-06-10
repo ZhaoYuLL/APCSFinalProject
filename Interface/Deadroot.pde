@@ -3,6 +3,7 @@ public class Deadroot extends Root{
   float angle;
   int tick;
   int addtime;
+  SoundFile boom;
  Deadroot(float rad,float x, float y, float dx, float dy, int col, float angle, int ind){
   radius=rad;
   this.x=x;
@@ -24,6 +25,8 @@ public class Deadroot extends Root{
     if (index==3){
   deadroots.add(loadImage("BombaO.png"));
    deadroots.add(loadImage("BombaEx.png"));
+
+   
     }
   //rotate(this.angle);
   for (int i=0; i<deadroots.size();i++){
@@ -40,8 +43,10 @@ void display(){
   if (tick>500&&index==3)
     index++;
   imageMode(CENTER);
-  if (index==4)
+  if (index==4){
       image(deadroots.get(1),x,y);
+      exploding=true;
+  }
   else{    
   image(deadroots.get(0),x,y);
   }

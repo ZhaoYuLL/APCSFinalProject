@@ -1,6 +1,7 @@
 import processing.sound.*;
 SoundFile themeMusic;
 SoundFile sliced;
+SoundFile kaboom;
 ArrayList<Root> roots;
 ArrayList<Button> buttons;
 int score;
@@ -31,7 +32,10 @@ boolean timed;
 void setup() {
   themeMusic = new SoundFile(this, "data/themeMusic.mp3");
   sliced = new SoundFile(this, "data/slice.mp3");
+  kaboom = new SoundFile(this, "data/kaboom.mp3");
+  kaboom.amp(1);
   themeMusic.amp(0.05);
+  sliced.amp(.2);
   themeMusic.loop();
   font = loadFont("GB.vlw");
   textFont(font);
@@ -179,8 +183,13 @@ if (lose){
   for (Root r : new ArrayList<Root>(roots)) {
     r.move();
     r.display();
+    if (r.index==4&&r.exploding==true&&r.exploded==false){
+      kaboom.play();
+      r.exploded=true;
+    }
     r.click();//enables slashing
     //if goes off the bottom, remove it
+    if (r.exploding)
     if(r.y>=height+r.radius){
       if (r.bomb==false&&r.deadroot==false)
     lives --;
