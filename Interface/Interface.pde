@@ -1,4 +1,5 @@
-
+import processing.sound.*;
+SoundFile themeMusic;
 ArrayList<Root> roots;
 ArrayList<Button> buttons;
 int score;
@@ -27,6 +28,9 @@ float[] y = new float[20];
 boolean pause;
 boolean timed;
 void setup() {
+  themeMusic = new SoundFile(this, "data/themeMusic.mp3");
+  themeMusic.amp(0.05);
+  themeMusic.loop();
   font = loadFont("GB.vlw");
   textFont(font);
   ts = loadImage("titleScreen.jpg");
@@ -105,7 +109,11 @@ if (lose){
   shapeR[shape] = random(255);
   shapeG[shape] = random(255);
   shapeB[shape] = random(255);
+<<<<<<< HEAD
   if(nhighScore >= 2||thighScore >= 2){
+=======
+  if(highScore >= 0 && highScore < 4){
+>>>>>>> 91ccac83bc8da969b794132c122262127f9d4482
     stroke(255);
     line(pmouseX,pmouseY,mouseX,mouseY);
     for (int i=0; i<numShapes; i++) {
@@ -116,7 +124,11 @@ if (lose){
   shape++;
   if(shape >= numShapes) shape = 0; 
   }
+<<<<<<< HEAD
   if(nhighScore >= 4||thighScore >= 4){
+=======
+  if(highScore >= 4 && highScore < 6){
+>>>>>>> 91ccac83bc8da969b794132c122262127f9d4482
     //stars
     smooth(); 
   noStroke(); 
@@ -137,7 +149,11 @@ if (lose){
   x[x.length-1] = mouseX; 
   y[y.length-1] = mouseY;
   } 
+<<<<<<< HEAD
   if(nhighScore >= 0||thighScore >= 4){
+=======
+  if(highScore >= 6){
+>>>>>>> 91ccac83bc8da969b794132c122262127f9d4482
     smooth(); 
   noStroke(); 
   for(int i = 0; i<x.length-1; i++) {
