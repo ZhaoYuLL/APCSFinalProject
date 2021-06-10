@@ -1,5 +1,6 @@
 import processing.sound.*;
 SoundFile themeMusic;
+SoundFile sliced;
 ArrayList<Root> roots;
 ArrayList<Button> buttons;
 int score;
@@ -29,6 +30,7 @@ boolean pause;
 boolean timed;
 void setup() {
   themeMusic = new SoundFile(this, "data/themeMusic.mp3");
+  sliced = new SoundFile(this, "data/slice.mp3");
   themeMusic.amp(0.05);
   themeMusic.loop();
   font = loadFont("GB.vlw");
@@ -199,7 +201,7 @@ if (lose){
         } 
         else{
         score++;
-        
+        sliced.play();
        
         }
       }
