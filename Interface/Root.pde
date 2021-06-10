@@ -8,6 +8,7 @@ int index=0;
 boolean removesoon=false;
 boolean exploding=false;
 boolean exploded=false;
+ int tick;
 Root(float rad,float x, float y, float dx, float dy, int col){
   radius=rad;
   this.x=x;

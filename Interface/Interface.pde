@@ -187,6 +187,9 @@ if (lose){
       kaboom.play();
       r.exploded=true;
     }
+    if (r.exploded==true&&r.tick>=1450){
+      roots.remove(r);
+    }
     r.click();//enables slashing
     //if goes off the bottom, remove it
 

@@ -1,7 +1,6 @@
 public class Deadroot extends Root{
   ArrayList<PImage> deadroots;
   float angle;
-  int tick;
   int addtime;
   SoundFile boom;
  Deadroot(float rad,float x, float y, float dx, float dy, int col, float angle, int ind){
@@ -16,8 +15,9 @@ public class Deadroot extends Root{
   this.angle=angle;
   index=ind;
   deadroots= new ArrayList<PImage>();
-  if (index==0)
+  if (index==0){
   deadroots.add(loadImage("SplitDadish2(1).png"));
+  }
     if (index==1)
   deadroots.add(loadImage("SplitPotatoProto(1).png"));
     if (index==2)
@@ -28,7 +28,6 @@ public class Deadroot extends Root{
 
    
     }
-  //rotate(this.angle);
   for (int i=0; i<deadroots.size();i++){
     deadroots.get(i).resize((int)(this.radius*2),(int)(this.radius*2));
    }
