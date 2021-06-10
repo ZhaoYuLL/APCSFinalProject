@@ -1,25 +1,17 @@
 import processing.sound.*;
-SoundFile themeMusic;
-SoundFile sliced;
-SoundFile kaboom;
+SoundFile themeMusic,sliced, kaboom;
 ArrayList<Root> roots;
 ArrayList<Button> buttons;
-int score;
-int lives;
+int score, lives,sessionScore,nhighScore,thighScore,pausestart,pausetime;;
 float Stime=0;
-boolean lose;
+boolean lose, pause, timed;
 float ingamet=0;
 PImage bg, ts, pauseSign;
 PFont font;
-int sessionScore;
-int nhighScore;
-int thighScore;
 //mouse particles
 int numShapes = 7;
 int shape = 0;   
 int shapeSize = 13;
-int pausestart;
-int pausetime;
 float[] xCor = new float[numShapes];  
 float[] yCor = new float[numShapes];  
 float[] shapeR = new float[numShapes]; 
@@ -27,8 +19,7 @@ float[] shapeG = new float[numShapes];
 float[] shapeB = new float[numShapes];
 float[] x = new float[20]; //need some adjusting
 float[] y = new float[20]; 
-boolean pause;
-boolean timed;
+
 void setup() {
   themeMusic = new SoundFile(this, "data/themeMusic.mp3");
   sliced = new SoundFile(this, "data/slice.mp3");
