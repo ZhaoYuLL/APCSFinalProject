@@ -2,7 +2,6 @@ import processing.sound.*;
 SoundFile themeMusic,sliced, kaboom;
 ArrayList<Root> roots;
 ArrayList<Button> buttons;
-Button SettingsB;
 Slider[] sliders =  new Slider[3];
 int score, lives,sessionScore,nhighScore,thighScore,pausestart,pausetime;
 float Stime=0;
@@ -42,16 +41,15 @@ void setup() {
   frameRate(30);
   background(ts);
   size(1000, 800);
-  sliders[0] = new Slider(20, 60, 40, 20);
-  sliders[1] = new Slider(20, 160, 40, 20);
-  sliders[2] = new Slider(20, 260, 40, 20);
+  sliders[0] = new Slider(20, 70, 40, 20);
+  sliders[1] = new Slider(20, 220, 40, 20);
+  sliders[2] = new Slider(20, 370, 40, 20);
   lives=0;
   roots = new ArrayList<Root>();
   buttons= new ArrayList<Button>();
   buttons.add( new Button("Normal",width/2-100,height/2-50,200,100));
   buttons.add( new Button("Timed",width/2-100,height/2+100,200,100));
   buttons.add( new Button("Settings",width/2-100,height/2+250,200,100));
-  //SettingsB= new Button("Settings",width/2-100,height/2+250,200,100);
   lose=true;
   pause=false;
 }
@@ -103,8 +101,12 @@ if (lose){
     background(sbg);
     buttons.get(2).Draw();
     textSize(15);
-    for (Slider s:sliders)
-        s.draw();
+    for (Slider s:sliders) s.draw();
+    fill(254,237,217);
+    textSize(30);
+    text("Theme Music: ", 150, 50);
+    text("Bomb Sound Effect: ", 200, 200);
+    text("Slice Sound Effect: ", 190, 350);
     themeMusic.amp((float)(sliders[0].t/100.0)/4);
     kaboom.amp((float)sliders[1].t/100.0);
     sliced.amp((float)sliders[2].t/100.0);
